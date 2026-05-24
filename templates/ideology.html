@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NNC - Official Party Ideology</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-brand">
+            <span class="icon">🪳</span>
+            <h2>Nazi National Congress 🇮🇳</h2>
+        </div>
+        <div class="user-badge">
+            <a href="/dashboard" class="btn btn-logout" style="background-color: #00ff66; color: #000; margin-right: 10px; text-decoration: none; font-weight: bold;">Return to Dashboard</a>
+            <a href="/logout" class="btn btn-logout">Secure Logout</a>
+        </div>
+    </header>
+
+    <main class="dashboard-grid" style="grid-template-columns: 1fr; max-width: 850px;">
+        <div class="card manifesto-card">
+            <h3 style="color: #ff9900; border-color: #ff9900; text-align: center;">🏛️ Official 10 Pillars of Ideology</h3>
+            
+            <div class="banner-display-container" style="margin-bottom: 25px; text-align: center;">
+                <img src="{{ w_data.banner_photo }}" alt="Party Banner Picture" style="max-width: 100%; border-radius: 6px; border: 1px solid #333;" onerror="this.src='https://placehold.co/600x200/1a1a1a/00ff66?text=No+Custom+Image+Uploaded';">
+            </div>
+
+            <p class="roster-desc" style="font-size: 1.05rem; text-align: center; margin-bottom: 25px; color: #aaaaaa;">
+                These foundational instant points are set dynamically by the supreme executive command administration layer.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                {% for i in range(1, 11) %}
+                <div class="manifesto-display" style="border-left: 4px solid #ff9900; background-color: #161616; padding: 18px; border-radius: 4px;">
+                    <p style="font-size: 1.1rem; color: #ffffff; font-weight: 500; margin: 0;">{{ w_data['ideology_' ~ i] }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>
