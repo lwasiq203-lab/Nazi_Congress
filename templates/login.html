@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NNC - Login Gateway</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <div class="logo-area">
+            <span class="party-logo">🪳</span>
+            <h1>NAZI NATIONAL CONGRESS</h1>
+            <p class="subtitle">🇮🇳 Stronger. Smarter. Unstoppable. 🇮🇳</p>
+        </div>
+        
+        <h2>Authorized Login</h2>
+        
+        {% if error %}
+            <div class="error-msg">{{ error }}</div>
+        {% endif %}
+        
+        <form action="/login" method="POST" class="auth-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter party username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Security Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter security password" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enter Dashboard</button>
+        </form>
+        
+        <div class="auth-footer">
+            <p>Not a registered cadet yet? <a href="/register">Join the Congress Ranks</a></p>
+        </div>
+    </div>
+</body>
+</html>
